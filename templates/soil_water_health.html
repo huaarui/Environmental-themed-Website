@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水土环保：守护土壤与水体健康</title>
+    <!-- 复用 home.html 的 CSS 样式 -->
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css" rel="stylesheet">
+    <style>
+        /* 继承 home.html 的 CSS 变量和基础样式 */
+        :root {
+            --primary: #5E8B7E;
+            --secondary: #A7C4BC;
+            --accent: #F8A97A;
+            --text: #2F5D62;
+            --light: #F4F9F4;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--light);
+            color: var(--text);
+            background-image: url('https://s2.ssl.qhres2.com/static/8e0d2d3d3a0f0f8f.svg');
+            background-size: 30%;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+        }
+
+        .title-font {
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .nav-item {
+            transition: all 0.3s ease;
+            border-bottom: 2px dashed transparent;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-3px);
+            border-bottom-color: var(--accent);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 图片容器样式 */
+        .image-container {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="watercolor-bg"></div>
+
+    <!-- 顶部导航栏（复用 home.html 结构） -->
+    <header class="py-6 px-8 flex justify-between items-center fade-in">
+        <div class="flex items-center">
+            <div class="hand-drawn w-16 h-16 mr-4"></div>
+            <h1 class="title-font text-3xl text-primary">守护水土</h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="{% url 'home' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">首页</a>
+            <a href="{% url 'soil_water_health' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">水土环保</a>
+            <a href="{% url 'pollution_causes' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">污染原因</a>
+            <a href="{% url 'actions_to_take' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">行动建议</a>
+            <a href="{% url 'forum' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">社区论坛</a>
+        </nav>
+        <button class="md:hidden text-2xl" style="color: var(--primary)">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 py-12 max-w-6xl">
+        <!-- 土壤环保部分 -->
+        <section class="fade-in" style="animation-delay: 0.2s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                土壤环保：守护地球的皮肤
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">必要性</h3>
+                    <p class="text-xl leading-relaxed mb-6">
+                        土壤是农业生产的根基，但当前面临化肥农药滥用、工业污染等挑战。<br>
+                        污染物通过食物链危害人类健康，如镉污染土壤导致骨骼病变，且生态恢复困难。
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">重要性</h3>
+                    <p class="text-xl leading-relaxed">
+                        健康土壤是生态平衡的保障，支撑生物多样性，固碳缓解气候变化。<br>
+                        有机耕作和植树造林可增强土壤功能，保障粮食安全与生态稳定。
+                    </p>
+                </div>
+                <!-- 土壤相关图片，需替换为实际路径 -->
+                <div class="image-container" style="background-image: url('{% static 'image/health2.png' %}')"></div>
+            </div>
+        </section>
+
+        <!-- 水体环保部分 -->
+        <section class="fade-in" style="animation-delay: 0.4s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                水体环保：守护生命之源
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 水体图片，需替换为实际路径 -->
+                <div class="image-container" style="background-image: url('{% static 'image/health1.png' %}')"></div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">必要性</h3>
+                    <p class="text-xl leading-relaxed mb-6">
+                        工业废水、生活污水和垃圾倾倒导致水体污染，引发富营养化和水生生物死亡。<br>
+                        污染水体威胁饮用水安全，通过食物链传递毒素。
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">重要性</h3>
+                    <p class="text-xl leading-relaxed">
+                        清洁水体维持水生生物多样性，是生活、农业、工业用水基础。<br>
+                        优质水域兼具生态、旅游和经济价值，保障人类福祉。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 污染源图示部分（根据文档图片描述模拟） -->
+        <section class="fade-in" style="animation-delay: 0.6s">
+            <h2 class="title-font text-3xl mb-6 text-center" style="color: var(--primary)">
+                污染源分类
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- 农业污染源 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4" style="color: var(--accent)">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <a href="{% url 'agricultural_pollution' %}" class="font-semibold mb-2" style="color: var(--text)">农业污染</a>
+                    <p class="text-sm text-gray-600">化肥、农药过度使用</p>
+                </div>
+                <!-- 工业污染源 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4" style="color: var(--accent)">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <a href="{% url 'industrial_pollution' %}" class="font-semibold mb-2" style="color: var(--text)">工业污染</a>
+                    <p class="text-sm text-gray-600">废水排放、重金属累积</p>
+                </div>
+                <!-- 生活污染源 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4" style="color: var(--accent)">
+                        <i class="fas fa-house-user"></i>
+                    </div>
+                    <a href="{% url 'domestic_pollution' %}" class="font-semibold mb-2" style="color: var(--text)">生活污染</a>
+                    <p class="text-sm text-gray-600">污水、垃圾倾倒</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚复用 home.html 样式 -->
+    <footer class="py-8 px-6 text-center fade-in" style="background-color: var(--secondary); color: white; animation-delay: 0.8s">
+        <p class="mb-2">© 2025 守护水土环保倡议 | 地球是我们共同的家园</p>
+    </footer>
+</body>
+</html>
