@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环保行动：守护绿色家园</title>
+    <!-- 复用home.html的CSS样式 -->
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css" rel="stylesheet">
+    <style>
+        /* 继承home.html的CSS变量和基础样式 */
+        :root {
+            --primary: #5E8B7E;
+            --secondary: #A7C4BC;
+            --accent: #F8A97A;
+            --text: #2F5D62;
+            --light: #F4F9F4;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--light);
+            color: var(--text);
+            background-image: url('https://s2.ssl.qhres2.com/static/8e0d2d3d3a0f0f8f.svg');
+            background-size: 30%;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+        }
+
+        .title-font {
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            border-bottom: 2px dashed transparent;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+            border-bottom-color: var(--accent);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="watercolor-bg"></div>
+
+    <!-- 顶部导航（复用home.html结构，可选隐藏导航链接） -->
+    <header class="py-6 px-8 flex justify-between items-center fade-in">
+        <div class="flex items-center">
+            <div class="hand-drawn w-16 h-16 mr-4"></div>
+            <h1 class="title-font text-3xl text-primary" style="color: var(--primary)">守护水土</h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="{% url 'home' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">首页</a>
+            <a href="{% url 'soil_water_health' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">水土环保</a>
+            <a href="{% url 'pollution_causes' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">污染原因</a>
+            <a href="{% url 'actions_to_take' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">行动建议</a>
+            <a href="{% url 'forum' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">社区论坛</a>
+        </nav>
+        <button class="md:hidden text-2xl" style="color: var(--primary)">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 py-12 max-w-6xl">
+        <!-- 环保内容 sections，结合文档2的图文 -->
+        <section class="fade-in" style="animation-delay: 0.2s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                用行动守护绿色家园
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <!-- 左侧文字 -->
+                <div>
+                    <p class="text-xl mb-8 leading-relaxed">
+                        每一棵树木，都在为我们净化空气；每一只动物，都是生态链中不可或缺的一环。<br>
+                        我们的一举一动，都影响着这个美丽的世界。让我们从点滴小事做起，<br>
+                        不乱扔垃圾，节约资源，为守护这一方绿色天地贡献力量。
+                    </p>
+                </div>
+                <!-- 右侧图片，注意替换实际图片地址 -->
+                <div class="h-64 w-full bg-cover bg-center" 
+                     style="background-image: url('../static/image/home5.png');">
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in" style="animation-delay: 0.4s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                呵护自然，共筑绿色未来
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="h-64 w-full bg-cover bg-center" 
+                     style="background-image: url('../static/image/home3.png');">
+                </div>
+                <div>
+                    <p class="text-xl mb-8 leading-relaxed">
+                        地球是我们的母亲，绿色是她最美的衣裳。<br>
+                        多植一棵树，少用一张纸，节约一度电，<br>
+                        用点滴行动汇聚成爱的力量，守护这如诗如画的绿色家园。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in" style="animation-delay: 0.6s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                环保行动剪影：共赴春天之约
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 图片卡片1 -->
+                <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all">
+                    <img src="../static/image/text1.jpg" 
+                         alt="骑行者" 
+                         class="w-full h-48 object-cover mb-4">
+                    <p class="text-sm text-gray-600 text-center">
+                        骑行者乘风穿梭，感受自然韵律
+                    </p>
+                </div>
+                <!-- 图片卡片2 -->
+                <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all">
+                    <img src="../static/image/text2.jpg" 
+                         alt="垃圾分类" 
+                         class="w-full h-48 object-cover mb-4">
+                    <p class="text-sm text-gray-600 text-center">
+                        垃圾分类，奏响环保乐章
+                    </p>
+                </div>
+                <!-- 图片卡片3 -->
+                <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all">
+                    <img src="../static/image/text3.jpg" 
+                         alt="儿童环保" 
+                         class="w-full h-48 object-cover mb-4">
+                    <p class="text-sm text-gray-600 text-center">
+                        孩子们用童真守护地球
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚复用home.html样式 -->
+    <footer class="py-8 px-6 text-center fade-in" style="background-color: var(--secondary); color: white; animation-delay: 0.8s">
+        <p class="mb-2">© 2025 守护水土环保倡议 | 地球是我们共同的家园</p>
+    </footer>
+</body>
+</html>
