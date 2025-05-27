@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业污染：水土环保的挑战</title>
+    <!-- 复用 home.html 的 CSS 样式 -->
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css" rel="stylesheet">
+    <style>
+        /* 继承 home.html 的 CSS 变量和基础样式 */
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap'); 
+        
+        :root {
+            --primary: #5E8B7E;
+            --secondary: #A7C4BC;
+            --accent: #F8A97A;
+            --text: #2F5D62;
+            --light: #F4F9F4;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--light);
+            color: var(--text);
+            background-image: url('https://s2.ssl.qhres2.com/static/8e0d2d3d3a0f0f8f.svg'); 
+            background-size: 30%;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+        }
+        
+        .hand-drawn {
+            background-image: url('https://s2.ssl.qhres2.com/static/6b1b1b1b1b1b1b1b.svg'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .title-font {
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            border-bottom: 2px dashed transparent;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+            border-bottom-color: var(--accent);
+        }
+        
+        .earth-illustration {
+            background-image: url('https://s2.ssl.qhres2.com/static/3c3c3c3c3c3c3c3c.svg'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .watercolor-bg {
+            background-image: url('https://s2.ssl.qhres2.com/static/4d4d4d4d4d4d4d4d.svg'); 
+            background-size: cover;
+            background-position: center;
+            mix-blend-mode: multiply;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="watercolor-bg"></div>
+
+    <!-- 顶部导航栏（复用 home.html 结构） -->
+    <header class="py-6 px-8 flex justify-between items-center fade-in">
+        <div class="flex items-center">
+            <div class="hand-drawn w-16 h-16 mr-4"></div>
+            <h1 class="title-font text-3xl text-primary" style="color: var(--primary)">守护水土</h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="{% url 'home' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">首页</a>
+            <a href="{% url 'soil_water_health' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">水土环保</a>
+            <a href="{% url 'pollution_causes' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">污染原因</a>
+            <a href="{% url 'actions_to_take' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">行动建议</a>
+            <a href="{% url 'forum' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">社区论坛</a>
+        </nav>
+        <button class="md:hidden text-2xl" style="color: var(--primary)">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 py-12 max-w-6xl">
+        <section class="fade-in" style="animation-delay: 0.2s">
+            <h2 class="title-font text-4xl mb-6 text-center" style="color: var(--primary)">
+                农业污染：水土环保的挑战
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">污染来源</h3>
+                    <p class="text-xl leading-relaxed mb-6">
+                        农业污染主要源于化肥、农药的过度使用。化肥中的氮、磷等元素大量流失，会导致水体富营养化，影响水质。农药残留则会污染土壤和农产品，危害人体健康。
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">危害影响</h3>
+                    <p class="text-xl leading-relaxed">
+                        农业污染破坏了土壤的生态平衡，降低了土壤肥力，影响农作物的生长和品质。同时，污染的水体也会对水生生物造成危害，破坏水生态系统。
+                    </p>
+                </div>
+                <!-- 农业污染相关图片，需替换为实际路径 -->
+                <div class="image-container" style="background-image: url('{% static 'image/pollution3.jpg' %}')"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚复用 home.html 样式 -->
+    <footer class="py-8 px-6 text-center fade-in" style="background-color: var(--secondary); color: white; animation-delay: 0.8s">
+        <p class="mb-2">© 2025 守护水土环保倡议 | 地球是我们共同的家园</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>守护水土：环保建议与案例分析</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css" rel="stylesheet">
+    <style>
+        /* 继承 home.html 的 CSS 样式 */
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap');
+        :root {
+            --primary: #5E8B7E;
+            --secondary: #A7C4BC;
+            --accent: #F8A97A;
+            --text: #2F5D62;
+            --light: #F4F9F4;
+        }
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--light);
+            color: var(--text);
+            background-image: url('https://s2.ssl.qhres2.com/static/8e0d2d3d3a0f0f8f.svg');
+            background-size: 30%;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+        }
+        .title-font {
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .bg-white-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* 图片样式 */
+        .case-image {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="watercolor-bg"></div>
+    
+    <!-- 顶部导航（与 home.html 一致） -->
+    <header class="py-6 px-8 flex justify-between items-center fade-in">
+        <div class="flex items-center">
+            <div class="hand-drawn w-16 h-16 mr-4"></div>
+            <h1 class="title-font text-3xl text-primary">守护水土</h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="{% url 'home' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">首页</a>
+            <a href="{% url 'soil_water_health' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">水土环保</a>
+            <a href="{% url 'pollution_causes' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">污染原因</a>
+            <a href="{% url 'actions_to_take' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">行动建议</a>
+            <a href="{% url 'forum' %}" class="nav-item px-3 py-2 font-medium" style="color: var(--text)">社区论坛</a>
+        </nav>
+        <button class="md:hidden text-2xl" style="color: var(--primary)">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- 主要内容 -->
+    <main class="flex-grow container mx-auto px-6 py-12 max-w-6xl">
+        <!-- 土壤环境保护部分 -->
+        <section class="fade-in" style="animation-delay: 0.2s">
+            <h2 class="title-font text-4xl mb-8 text-center" style="color: var(--primary)">
+                土壤环境保护建议与案例分析
+            </h2>
+            
+            <!-- 源头防控与全生命周期管理 -->
+            <div class="bg-white-card">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       源头防控与全生命周期管理
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 强化工业污染源头控制，建立重点监管单位全生命周期管理制度，推行“防、控、治”三位一体策略，严控化工、电镀等高污染行业排放。推广有机农业，减少化肥农药使用，实施轮作和生物修复技术。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：通过物理分离、蒸汽浸提等技术减少污染物扩散。例如，采用土壤气相抽提法原位去除挥发性有机物。</li>
+                        <li>化学修复：利用化学淋洗或固化技术稳定重金属。如云南兰坪县通过原位淋洗联合化学固化剂降低镉污染。</li>
+                        <li>生物修复：推广有机农业与生物质炭阻控技术。南京土壤所利用秸秆生物质炭强化根际微生物降解多环芳烃，实现边生产边修复。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>青岛土壤污染防治“样板”：通过建立172家重点企业监管名录，实施“123工作机制”（如排污许可证土壤污染防治表单），完成20个污染地块修复，实现污染地块安全利用率100%。</p>
+                    <img src="{% static "image/take1.png" %}" alt="青岛土壤修复案例" class="case-image">
+                    
+                    <p>云南兰坪县重金属铅污染耕地治理：采用低积累作物种植（筛选出镉铅低积累玉米品种）和原位淋洗植物吸取联合技术，使土壤镉全量下降29.8%，保障粮食安全。</p>
+                    <img src="{% static "image/take2.png" %}" alt="兰坪县污染图片" class="case-image">
+                </div>
+            </div>
+            
+            <!-- 污染场地分类修复与技术创新 -->
+            <div class="bg-white-card mt-8">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       污染场地分类修复与技术创新
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 针对不同污染类型（如重金属、有机物）采用植物修复、化学淋洗、热脱附等技术；对矿山和工业遗址实施生态复绿与功能转化。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：电动力学技术治理低渗透土壤重金属污染，通过电场迁移污染物至电极富集。</li>
+                        <li>化学修复：热解析法处理有机物污染，如万山区采用低温热解法分解汞污染物。</li>
+                        <li>生物修复：植物萃取技术修复重金属污染。扬州大学团队通过转基因植物SagB基因降解硝基化合物，实现土壤解毒。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>山东济宁安民山矿山复绿：使用“类壤土基质技术”和立体生态护坡，在裸露岩坡上恢复植被多样性，治理后成为生态旅游打卡地。</p>
+                    <img src="{% static "image/take3.png" %}" alt="安民山复绿案例" class="case-image">
+                    
+                    <p>合肥钢铁厂旧址修复：通过异位热脱附和淋洗技术处理复杂工业污染土壤，将工业“锈带”转型为文创园区和生态公园。</p>
+                    <img src="{% static "image/take4.png" %}" alt="合肥钢铁厂修复" class="case-image">
+                </div>
+            </div>
+            
+            <!-- 农用地安全利用与风险管控 -->
+            <div class="bg-white-card mt-8">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       农用地安全利用与风险管控
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 实施农用地分类管理（安全利用、严格管控、优先保护），推广低积累作物，建立土壤地下水联合监测网络。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：稀释覆土法降低表层污染浓度，但需配合长期监测。</li>
+                        <li>化学修复：添加黏结剂（如水泥）固化重金属，减少活性迁移。</li>
+                        <li>生物修复：种植低积累作物（如镉低吸收玉米），结合微生物调控代谢路径降解污染物。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>湖南永州零陵区“四个三”模式：通过全面排查53家高风险地块、打造生态农业基地（如油茶基地、红枫园），实现污染地块安全开发与农产品质量提升。</p>
+                    <img src="{% static "image/take5.png" %}" alt="零陵区农业案例" class="case-image">
+                </div>
+            </div>
+        </section>
+        
+        <!-- 水体环境保护部分 -->
+        <section class="fade-in mt-16" style="animation-delay: 0.4s">
+            <h2 class="title-font text-4xl mb-8 text-center" style="color: var(--primary)">
+                水体环境保护建议与案例分析
+            </h2>
+            
+            <!-- 截污控源与生态补水 -->
+            <div class="bg-white-card">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       截污控源与生态补水
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 完善雨污分流管网，严控工业废水排放标准；利用矿井水、再生水进行生态补水，增强水体流动性。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：清淤疏浚清除底泥污染物，晋城市清理44.9万立方米底泥消除隐性污染源。</li>
+                        <li>化学修复：污水处理厂升级膜生物反应器（MBR）等工艺，严控化学需氧量（COD）和氨氮排放。</li>
+                        <li>生物修复：人工湿地利用芦苇、香蒲等植物吸附氮磷，实现尾水资源化。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>晋城市农村黑臭水体治理：新建51座污水处理站，铺设638公里管网，清理底泥44.9万立方米，并通过水系连通工程引入矿井水补水，消除198处黑臭水体。</p>
+                    <img src="{% static "image/take6.png" %}" alt="晋城市水体治理" class="case-image">
+                    
+                    <p>四川达州魏家河治理教训：因截污不力导致水质反复，警示需从源头根治而非末端“假治理”。</p>
+                    <img src="{% static "image/take7.png" %}" alt="魏家河污染图片" class="case-image">
+                </div>
+            </div>
+            
+            <!-- 生态修复与生物多样性恢复 -->
+            <div class="bg-white-card mt-8">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       生态修复与生物多样性恢复
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 构建“水下森林”（沉水植物）、投放滤食性水生动物（如鲢、螺），利用人工浮岛和湿地净化水质。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：构建生态浮岛增强水体流动性，搭配沉水植物净化水质。</li>
+                        <li>化学修复：投放铝盐、铁盐等絮凝剂控制藻类爆发，但需谨慎避免二次污染。</li>
+                        <li>生物修复：上海曹杨环浜投放鲢鱼控制藻类，结合“水下森林”提升透明度至见底。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>上海曹杨环浜生态修复：种植菹草、黑藻等沉水植物，投放鲢鱼控制藻类，水质从劣V类提升至IV类，透明度达见底。</p>
+                    <img src="{% static "image/take8.png" %}" alt="曹杨环浜修复" class="case-image">
+                    
+                    <p>闵行文化公园水系治理：通过“水上缓冲带+水体生物操纵+水下森林”三位一体策略，透明度达1.5米，水质稳定达III类。</p>
+                    <img src="{% static "image/take9.png" %}" alt="闵行公园水系" class="case-image">
+                </div>
+            </div>
+            
+            <!-- 长效管护与公众参与 -->
+            <div class="bg-white-card mt-8">
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--text)">
+                       长效管护与公众参与
+                </h3>
+                <div class="mb-4">
+                    <p class="text-lg leading-relaxed">
+                        <strong>建议：</strong> 建立河长制、民间监督机制，将水体保洁纳入村级公益岗位；推广“以用促治”模式，结合文旅开发实现可持续管理。
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2">修复技术分类：</h4>
+                    <ul class="ml-6 list-disc text-gray-700">
+                        <li>物理修复：河道保洁纳入公益岗位，定期清理漂浮垃圾。</li>
+                        <li>化学修复：动态监测水质指标（如总磷），及时投加药剂调控。</li>
+                        <li>生物修复：利用微生物制剂强化水体自净能力，如硝化细菌降解氨氮。</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mb-2">案例：</h4>
+                    <p>晋城“多元共管”模式：治理后水体由市政公司运维，费用纳入财政预算，并设置监督公示牌，保障长治久清。</p>
+                    <img src="{% static "image/take10.png" %}" alt="晋城管护案例" class="case-image">
+                    
+                    <p>零陵区“生态小游园”开发：将废弃工业用地改造为休闲公园，实现污染治理与民生需求结合。</p>
+                    <img src="{% static "image/take11.png" %}" alt="零陵区生态公园" class="case-image">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚（与 home.html 一致） -->
+    <footer class="py-8 px-6 text-center fade-in" style="background-color: var(--secondary); color: white; animation-delay: 0.8s">
+        <p class="mb-2">© 2025 守护水土环保倡议 | 地球是我们共同的家园</p>
+    </footer>
